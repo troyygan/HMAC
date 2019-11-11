@@ -72,13 +72,14 @@ class Crypticle(object):
 
 
 if __name__ == "__main__":
-    # usage example
+    # usage example
     key = Crypticle.generate_key_string()
-#    print key
+    print key
+    with open ("testfile.txt", "rb") as file:
+        data = file.read()
 #    data = {"dict": "full", "of": "secrets"}
-    print data
     crypt = Crypticle(key)
     safe = crypt.dumps(data)
     assert data == crypt.loads(safe)
     print "encrypted data:"
-    print safe.encode("base64")
+    safe.encode("base64")
